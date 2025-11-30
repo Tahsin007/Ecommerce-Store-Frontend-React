@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../../store/hooks';
 import { useAuth } from '../../../hooks/useAuth';
-import './Header.module.css';
+import styles from './Header.module.css';
 
 export const Header: React.FC = () => {
   const { isAuthenticated, user } = useAppSelector((state) => state.auth);
@@ -10,36 +10,36 @@ export const Header: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="header">
-      <div className="header-container">
-        <Link to="/" className="logo">
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
+        <Link to="/" className={styles.logo}>
           Online Storefront
         </Link>
 
-        <nav className="nav">
+        <nav className={styles.nav}>
           {isAuthenticated ? (
             <>
-              <Link to="/" className="nav-link">
+              <Link to="/" className={styles.navLink}>
                 Home
               </Link>
-              <Link to="/settings" className="nav-link">
+              <Link to="/settings" className={styles.navLink}>
                 Settings
               </Link>
-              <div className="user-menu">
-                <span className="user-name">
+              <div className={styles.userMenu}>
+                <span className={styles.userName}>
                   {user?.firstName || user?.username}
                 </span>
-                <button className="logout-btn" onClick={logout}>
+                <button className={styles.logoutBtn} onClick={logout}>
                   Logout
                 </button>
               </div>
             </>
           ) : (
             <>
-              <Link to="/login" className="nav-link">
+              <Link to="/login" className={styles.navLink}>
                 Login
               </Link>
-              <Link to="/signup" className="nav-link btn-signup">
+              <Link to="/signup" className={`${styles.navLink} ${styles.btnSignup}`}>
                 Sign Up
               </Link>
             </>

@@ -1,0 +1,18 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-form h3 {
+  margin: 0 0 24px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 12px;
+}
+
+.profile-form button[type="submit"] {
+  margin-top: 16px;
+}

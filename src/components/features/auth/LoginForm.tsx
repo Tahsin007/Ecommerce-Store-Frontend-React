@@ -4,6 +4,7 @@ import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { useAuth } from '../../../hooks/useAuth';
 import type { LoginRequest } from '../../../types/auth.types';
+import './AuthForm.css';
 
 export const LoginForm: React.FC = () => {
   const [formData, setFormData] = useState<LoginRequest>({

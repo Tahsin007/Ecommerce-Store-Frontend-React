@@ -1,15 +1,15 @@
 import React from 'react';
-import './Footer.module.css';
+import styles from './Footer.module.css';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
         <p>&copy; 2024 Online Storefront. All rights reserved.</p>
-        <div className="footer-links">
-          <a href="#" className="footer-link">Privacy Policy</a>
-          <a href="#" className="footer-link">Terms of Service</a>
-          <a href="#" className="footer-link">Contact</a>
+        <div className={styles.footerLinks}>
+          <a href="#" className={styles.footerLink}>Privacy Policy</a>
+          <a href="#" className={styles.footerLink}>Terms of Service</a>
+          <a href="#" className={styles.footerLink}>Contact</a>
         </div>
       </div>
     </footer>

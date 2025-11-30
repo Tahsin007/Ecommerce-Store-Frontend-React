@@ -1,0 +1,94 @@
+.auth-form {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.auth-form h2 {
+    text-align: center;
+    color: #2d3748;
+    /* Gray-800 */
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+/* 
+  The following styles assume your Input component renders a wrapper div,
+  a label, an input, and a paragraph for the error message.
+  You can adjust the selectors if your component structure is different.
+*/
+.auth-form .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.auth-form label {
+    font-weight: 500;
+    color: #4a5568;
+    /* Gray-600 */
+}
+
+.auth-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    /* Gray-300 */
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #4299e1;
+    /* Blue-400 */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.auth-form .error-message {
+    color: #e53e3e;
+    /* Red-600 */
+    font-size: 0.875rem;
+    margin-top: -0.25rem;
+}
+
+.form-links {
+    text-align: right;
+    margin-top: -0.75rem;
+}
+
+.form-links .link {
+    color: #4299e1;
+    /* Blue-400 */
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.form-links .link:hover {
+    text-decoration: underline;
+}
+
+.form-footer {
+    text-align: center;
+    color: #718096;
+    /* Gray-500 */
+    margin-top: 0.5rem;
+}
+
+.form-footer a {
+    color: #4299e1;
+    /* Blue-400 */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
