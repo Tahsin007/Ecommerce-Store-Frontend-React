@@ -1,3 +1,6 @@
+import React from 'react';
+import styles from './Input.module.css';
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
@@ -10,10 +13,10 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className={`input-wrapper ${className}`}>
-      {label && <label className="input-label">{label}</label>}
-      <input className={`input ${error ? 'input-error' : ''}`} {...props} />
-      {error && <span className="error-message">{error}</span>}
+    <div className={`${styles.inputWrapper} ${className}`}>
+      {label && <label className={styles.inputLabel}>{label}</label>}
+      <input className={`${styles.input} ${error ? styles.inputError : ''}`} {...props} />
+      {error && <span className={styles.errorMessage}>{error}</span>}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import type { UpdateProfileRequest } from '../../../types/user.types';
 import { useAppDispatch } from '../../../store/hooks';
 import { updateUser } from '../../../store/slices/authSlice';
 import { toast } from 'react-toastify';
-import './ProfileForm.css';
+import styles from './ProfileForm.module.css';
 
 export const ProfileForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -57,7 +57,7 @@ export const ProfileForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="profile-form">
+    <form onSubmit={handleSubmit} className={styles.profileForm}>
       <h3>Profile Information</h3>
       <Input
         label="Username"

@@ -3,6 +3,7 @@ import { useCategories } from '../../../hooks/useProducts';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { setSelectedCategory } from '../../../store/slices/userSlice';
 import './CategoryFilter.css';
+import { Loader } from '../../common/Loader/Loader';
 
 export const CategoryFilter: React.FC = () => {
   const { data: categories, isLoading } = useCategories();
@@ -14,7 +15,7 @@ export const CategoryFilter: React.FC = () => {
   };
 
   if (isLoading) {
-    return <div>Loading categories...</div>;
+    return <Loader />;
   }
 
   return (
