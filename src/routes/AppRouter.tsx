@@ -2,12 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from '../components/layout/Layout/Layout';
 import { ProtectedRoute } from './ProtectedRoutes';
+import { AdminRoute } from './AdminRoute';
 import { PublicRoute } from './PublicRoute';
 import { SignupPage } from '../pages/SignupPage';
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
 import { VerifyEmailPage } from '../pages/VerifyEmailPage';
 import { HomePage } from '../pages/HomePage';
 import { ProductPage } from '../pages/ProductPage';
+import { AdminDashboardPage } from '../pages/AdminDashboardPage';
 import { SettingsPage } from '../pages/SettingsPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { ResetPasswordPage } from '../pages/ResetPasswordPage';
@@ -72,6 +74,15 @@ export const AppRouter: React.FC = () => {
             }
           />
 
+          {/* Admin Routes */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboardPage />
+              </AdminRoute>
+            }
+          />
           {/* 404 Route */}
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />

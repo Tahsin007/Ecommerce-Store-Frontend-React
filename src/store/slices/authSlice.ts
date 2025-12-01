@@ -1,5 +1,6 @@
 import type {  PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import type { RootState } from '../../store';
 
 import type { UserResponse } from '../../types/user.types';
 
@@ -57,3 +58,7 @@ const authSlice = createSlice({
 
 export const { setCredentials, updateUser, logout } = authSlice.actions;
 export default authSlice.reducer;
+
+// Selector to check if the user is an admin
+export const selectIsAdmin = (state: RootState): boolean =>
+  state.auth.user?.roles.includes('ROLE_ADMIN') ?? false;
