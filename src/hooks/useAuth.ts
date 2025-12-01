@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks';
 import { setCredentials, logout as logoutAction } from '../store/slices/authSlice';
 
@@ -10,6 +10,7 @@ import { loginRequest, signupRequest, forgotPasswordRequest, resetPasswordReques
 export const useAuth = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const loginMutation = useMutation({
     mutationFn: loginRequest,
@@ -22,7 +23,13 @@ export const useAuth = () => {
         })
       );
       toast.success('Login successful!');
-      navigate('/');
+      const isAdmin = data.user.roles.includes('ROLE_ADMIN');
+      if (isAdmin) {
+        navigate('/admin');
+      } else {
+        const from = location.state?.from?.pathname || '/';
+        navigate(from, { replace: true });
+      }
     },
     onError: (error: any) => {
       toast.error(error.response?.data?.message || 'Login failed');
