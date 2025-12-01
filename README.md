@@ -1,75 +1,138 @@
-# React + TypeScript + Vite
+# Ecommerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a modern Ecommerce application built with React, Vite, and TypeScript.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **User Authentication:** Secure login, registration, and password management.
+*   **Product Catalog:** View and filter products by category.
+*   **Product Details:** View detailed information for each product.
+*   **Shopping Cart:** Add and remove products from the cart.
+*   **Checkout:** Secure checkout process.
+*   **User Profile:** View and update user information.
+*   **Admin Dashboard:** Manage products, orders, and users.
+*   **Responsive Design:** The application is optimized for all screen sizes.
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+ecommerce_frontend/
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── public/
+│   └── vite.svg
+└── src/
+    ├── App.css
+    ├── App.tsx
+    ├── index.css
+    ├── main.tsx
+    ├── api/
+    │   ├── axios.config.ts
+    │   ├── interceptors.ts
+    │   └── endpoints/
+    │       ├── auth.api.ts
+    │       ├── product.api.ts
+    │       └── user.api.ts
+    ├── assets/
+    │   └── react.svg
+    ├── components/
+    │   ├── common/
+    │   │   ├── Button/
+    │   │   ├── Card/
+    │   │   ├── ErrorMessage/
+    │   │   ├── Input/
+    │   │   ├── Loader/
+    │   │   └── Modal/
+    │   ├── features/
+    │   │   ├── auth/
+    │   │   ├── product/
+    │   │   └── user/
+    │   └── layout/
+    │       ├── Footer/
+    │       ├── Header/
+    │       └── Layout/
+    ├── hooks/
+    │   ├── useAuth.ts
+    │   ├── useLocalStorage.ts
+    │   └── useProducts.ts
+    ├── pages/
+    │   ├── AdminDashboardPage.tsx
+    │   ├── ForgotPasswordPage.tsx
+    │   ├── HomePage.tsx
+    │   ├── LoginPage.tsx
+    │   ├── NotFoundPage.tsx
+    │   ├── ProductForm.tsx
+    │   ├── ProductPage.tsx
+    │   ├── ResetPasswordPage.tsx
+    │   ├── SettingsPage.tsx
+    │   ├── SignupPage.tsx
+    │   └── VerifyEmailPage.tsx
+    ├── routes/
+    │   ├── AdminRoute.tsx
+    │   ├── AppRouter.tsx
+    │   ├── ProtectedRoutes.tsx
+    │   └── PublicRoute.tsx
+    ├── store/
+    │   ├── hooks.ts
+    │   ├── index.ts
+    │   └── slices/
+    │       ├── authSlice.ts
+    │       ├── uiSlice.ts
+    │       └── userSlice.ts
+    ├── types/
+    │   ├── auth.types.ts
+    │   ├── common.types.ts
+    │   ├── product.types.ts
+    │   └── user.types.ts
+    └── utils/
+        ├── constants.ts
+        ├── formatters.ts
+        ├── storage.ts
+        └── validation.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*   **React:** A JavaScript library for building user interfaces.
+*   **Vite:** A fast build tool and development server.
+*   **TypeScript:** A typed superset of JavaScript.
+*   **React Router:** For routing and navigation.
+*   **Redux Toolkit:** For state management.
+*   **React Query:** For data fetching and caching.
+*   **Axios:** For making HTTP requests.
+*   **ESLint:** For code linting.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Setup Instructions
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/ecommerce_frontend.git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd ecommerce_frontend
+    ```
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+5.  Open your browser and visit `http://localhost:5173` to see the application.
+
+## Available Scripts
+
+*   `npm run dev`: Starts the development server.
+*   `npm run build`: Builds the application for production.
+*   `npm run lint`: Lints the code.
+*   `npm run preview`: Starts a local server to preview the production build.
